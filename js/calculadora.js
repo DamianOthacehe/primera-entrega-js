@@ -1,4 +1,7 @@
-//calculadora
+//CALCULADORA
+
+
+//variables
 
 let num1;
 let num2;
@@ -6,18 +9,25 @@ let opcionValida;
 let calculadora;
 
 
+//funcion con bucle para pedido de valores
+
+function pedirNumero(mensaje) {
+    let numero
+    do {
+        numero = parseInt(prompt(mensaje));
+        if (isNaN(numero)) {
+            alert("Por favor, ingrese valores numéricos válidos.");
+        }
+    } while (isNaN(numero)) {
+        return numero;
+    }
+}
+
+
 //pedido de valores
 
-num1 = parseInt(prompt("ingrese un numero"));
-while (isNaN(num1)){
-    alert("Por favor, ingrese valores numéricos válidos.");
-    num1 = parseInt(prompt("ingrese un numero"));
-}
-num2 = parseInt(prompt("ingrese un segundo numero"));
-while (isNaN(num2)){
-    alert("Por favor, ingrese valores numéricos válidos.");
-    num2 = parseInt(prompt("ingrese un segundo numero"));
-}
+num1 = pedirNumero("ingrese un numero");
+num2 = pedirNumero("ingrese un segundo numero");
 
 
 // Funciones de operaciones matemáticas
@@ -40,7 +50,7 @@ function multiplicacion() {
 function division() {
     while (num2 === 0) {
         alert("no se puede dividir por 0. Ingrese un valor valido");
-        num2 = parseInt(prompt("ingrese un segundo numero"));
+        num2 = pedirNumero("ingrese un segundo numero");
     }
     let resultado = num1 / num2;
     console.log(num1 + " dividido " + num2 + " es igual a " + resultado)
@@ -52,15 +62,15 @@ function divisibilidad() {
     } else { console.log(num1 + " no es multiplo de " + num2) }
 }
 
-function tabla(){
+function tabla() {
     let i;
-for (i = num1; i <= num1 * 10; i = i + num1) {
-    console.log(i)
-}
-let l;
-for (l = num2; l <= num2 * 10; l = l + num2) {
-    console.log(l)
-}
+    for (i = num1; i <= num1 * 10; i = i + num1) {
+        console.log(i)
+    }
+    let l;
+    for (l = num2; l <= num2 * 10; l = l + num2) {
+        console.log(l)
+    }
 }
 
 
