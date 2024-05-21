@@ -1,11 +1,23 @@
 //calculadora
 
-
-
-let num1 = parseInt(prompt("ingrese un numero"));
-let num2 = parseInt(prompt("ingrese un segundo numero"));
+let num1;
+let num2;
 let opcionValida;
 let calculadora;
+
+
+//pedido de valores
+
+num1 = parseInt(prompt("ingrese un numero"));
+while (isNaN(num1)){
+    alert("Por favor, ingrese valores numéricos válidos.");
+    num1 = parseInt(prompt("ingrese un numero"));
+}
+num2 = parseInt(prompt("ingrese un segundo numero"));
+while (isNaN(num2)){
+    alert("Por favor, ingrese valores numéricos válidos.");
+    num2 = parseInt(prompt("ingrese un segundo numero"));
+}
 
 
 // Funciones de operaciones matemáticas
@@ -40,12 +52,23 @@ function divisibilidad() {
     } else { console.log(num1 + " no es multiplo de " + num2) }
 }
 
+function tabla(){
+    let i;
+for (i = num1; i <= num1 * 10; i = i + num1) {
+    console.log(i)
+}
+let l;
+for (l = num2; l <= num2 * 10; l = l + num2) {
+    console.log(l)
+}
+}
+
 
 // Bucle para seleccionar una operación
 
 do {
     opcionValida = true;
-    calculadora = parseInt(prompt("Seleccione una operación. 1)Sumar, 2)Restar, 3)Multiplicar, 4)Dividir, 5)Verificar divisibilidad"));
+    calculadora = parseInt(prompt("Seleccione una operación. 1)Sumar, 2)Restar, 3)Multiplicar, 4)Dividir, 5)Verificar divisibilidad, 6)Imprimir tabla de multiplicar"));
     switch (calculadora) {
         case 1:
             suma();
@@ -62,6 +85,9 @@ do {
         case 5:
             divisibilidad();
             break;
+        case 6:
+            tabla()
+            break;
         default:
             alert("Ingrese una opcion valida")
             opcionValida = false;
@@ -69,11 +95,3 @@ do {
     }
 
 } while (opcionValida != true);
-
-
-// Imprimir tabla de multiplicar
-
-let i;
-for (i = num1; i <= num1 * 10; i = i + num1) {
-    console.log(i)
-}
